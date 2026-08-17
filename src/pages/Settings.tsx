@@ -7,19 +7,19 @@ import { toast } from "sonner";
 import { useServerConfig, useUpdateConfig } from "@/api/hooks";
 
 const syncTable = [
-  { type: "Incidents", dir: "Read", freq: "Real-time (webhook)", last: "4s ago", active: true },
+  { type: "Incidents", dir: "Read", freq: "Real time (webhook)", last: "4s ago", active: true },
   { type: "CMDB", dir: "Read", freq: "Every 15 minutes", last: "12m ago", active: true },
-  { type: "Changes", dir: "Read", freq: "Real-time", last: "4s ago", active: true },
-  { type: "Event Management", dir: "Read", freq: "Real-time", last: "4s ago", active: true },
+  { type: "Changes", dir: "Read", freq: "Real time", last: "4s ago", active: true },
+  { type: "Event Management", dir: "Read", freq: "Real time", last: "4s ago", active: true },
   { type: "MID Server Status", dir: "Read", freq: "Every 2 minutes", last: "1m 58s ago", active: true },
-  { type: "ECC Queue Metrics", dir: "Read", freq: "Real-time (polling 30s)", last: "28s ago", active: true },
+  { type: "ECC Queue Metrics", dir: "Read", freq: "Real time (polling 30s)", last: "28s ago", active: true },
   { type: "Assignment Groups", dir: "Read", freq: "Every 1 hour", last: "34m ago", active: true },
   { type: "Users & Teams", dir: "Read", freq: "Every 6 hours", last: "2h ago", active: true },
 ];
 
 const writeBack = [
   { type: "Work Notes", enabled: true, desc: "Agent activity, RCA findings written to incident" },
-  { type: "Resolution Notes", enabled: true, desc: "Full resolution summary on auto-resolve" },
+  { type: "Resolution Notes", enabled: true, desc: "Full resolution summary on auto resolve" },
   { type: "Status Updates", enabled: true, desc: "In Progress, Resolved status changes" },
   { type: "Assignment Changes", enabled: true, desc: "When escalating to specific teams" },
   { type: "Change Request Creation", enabled: true, desc: "When remediation requires formal change" },
@@ -47,7 +47,7 @@ const notificationRules = [
   { event: "Agent Execution Started", channels: ["Slack", "Email"], severity: "Info", enabled: true },
   { event: "Approval Required", channels: ["Slack", "PagerDuty", "Email"], severity: "Warning", enabled: true },
   { event: "Execution Failed", channels: ["Slack", "PagerDuty", "Email"], severity: "Critical", enabled: true },
-  { event: "Auto-Resolution Completed", channels: ["Slack", "Email"], severity: "Info", enabled: true },
+  { event: "Auto Resolution Completed", channels: ["Slack", "Email"], severity: "Info", enabled: true },
   { event: "Confidence Below Threshold", channels: ["Slack"], severity: "Warning", enabled: true },
   { event: "Emergency Stop Triggered", channels: ["Slack", "PagerDuty", "Email", "SMS"], severity: "Critical", enabled: true },
   { event: "New Pattern Discovered", channels: ["Email"], severity: "Info", enabled: false },
@@ -65,7 +65,7 @@ const teamMembers = [
 
 const auditLog = [
   { time: "2 min ago", user: "Sarah Chen", action: "Approved remediation for INC-8834", category: "Execution" },
-  { time: "18 min ago", user: "System", action: "Auto-rotated AWS Production credentials", category: "Security" },
+  { time: "18 min ago", user: "System", action: "Auto rotated AWS Production credentials", category: "Security" },
   { time: "45 min ago", user: "Marcus Johnson", action: "Updated automation policy tier thresholds", category: "Configuration" },
   { time: "1h ago", user: "Priya Patel", action: "Triggered manual sync for CMDB data", category: "Integration" },
   { time: "2h ago", user: "System", action: "LLM fallback activated: Codestral → GPT-4o-mini", category: "System" },
@@ -219,7 +219,7 @@ export default function SettingsPage() {
             <ul className="space-y-1 text-xs text-muted-foreground">
               <li>• Confidence threshold: <span className="text-foreground font-medium">85%</span></li>
               <li>• Risk level: <span className="text-foreground font-medium">Low only</span></li>
-              <li>• Environment: <span className="text-success">✓ Non-Production</span> · <span className="text-destructive">✗ Production</span></li>
+              <li>• Environment: <span className="text-success">✓ Non Production</span> · <span className="text-destructive">✗ Production</span></li>
               <li>• Change freeze: <span className="text-foreground font-medium">Never</span></li>
             </ul>
           </div>

@@ -160,16 +160,16 @@ export default function Analytics() {
               </tr></thead>
               <tbody>
                 {[
-                  { m: "MID incidents auto-handled", monthly: "23 of 25", annual: "276" },
-                  { m: "Credential failures self-healed", monthly: "11", annual: "132" },
-                  { m: "Upgrade loops auto-remediated", monthly: "4", annual: "48" },
+                  { m: "MID incidents auto handled", monthly: "23 of 25", annual: "276" },
+                  { m: "Credential failures self healed", monthly: "11", annual: "132" },
+                  { m: "Upgrade loops auto remediated", monthly: "4", annual: "48" },
                   { m: "ECC queue restorations", monthly: "8", annual: "96" },
                   { m: "Avg MTTR — MID incidents", monthly: "4m 18s", annual: "—" },
                   { m: "MTTR before AutoOps (baseline)", monthly: "2h 24m", annual: "—" },
                   { m: "MTTR reduction", monthly: "97%", annual: "—", green: true },
                   { m: "Engineer hours saved (MID only)", monthly: "54 hrs", annual: "648 hrs" },
                   { m: "P1/P2 incidents prevented", monthly: "7", annual: "84" },
-                  { m: "MID-specific savings", monthly: "$18,200", annual: "$218,400", bold: true, green: true },
+                  { m: "MID specific savings", monthly: "$18,200", annual: "$218,400", bold: true, green: true },
                 ].map((r: any, i) => (
                   <tr key={i} className="border-b border-border">
                     <td className={`px-4 py-2 text-xs ${r.bold ? "font-semibold text-foreground" : "text-muted-foreground"}`}>{r.m}</td>
@@ -324,7 +324,7 @@ export default function Analytics() {
 
           <MetricCard 
             value="92.7%" 
-            label="First-Attempt Success Rate" 
+            label="First Attempt Success Rate" 
             subText="+1.3% this month" 
             accentColor="green" 
             icon={<Award size={24} />}

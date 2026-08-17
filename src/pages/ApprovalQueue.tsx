@@ -59,10 +59,10 @@ export default function ApprovalQueue() {
 
   const handleReject = (approval: ApprovalResponse) => {
     decideMutation.mutate(
-      { approvalId: approval.id, data: { decision: "rejected", notes: "Rejected from UI — escalated to on-call engineer", decided_by: currentUser } },
+      { approvalId: approval.id, data: { decision: "rejected", notes: "Rejected from UI — escalated to on call engineer", decided_by: currentUser } },
       {
         onSuccess: () => {
-          toast.error(`Rejected — incident escalated to on-call engineer`, {
+          toast.error(`Rejected — incident escalated to on call engineer`, {
             description: `Incident ${approval.incident_id} will be marked as failed`,
           });
         },
@@ -95,7 +95,7 @@ export default function ApprovalQueue() {
   };
 
   return (
-    <AppLayout title="Approval Queue" subtitle="Human-in-the-loop review for high-impact remediations">
+    <AppLayout title="Approval Queue" subtitle="Human in the loop review for high impact remediations">
       {/* Metrics */}
       <div className="grid grid-cols-4 gap-4 mb-6">
         <MetricCard
@@ -115,7 +115,7 @@ export default function ApprovalQueue() {
         />
         <MetricCard 
           value="98%" 
-          label="First-Assignment Routing" 
+          label="First Assignment Routing" 
           subText="Routed to correct team" 
           accentColor="green" 
           icon={<Target size={24} />}

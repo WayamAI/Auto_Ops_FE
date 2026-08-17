@@ -157,7 +157,7 @@ export default function Actions() {
 
 
   return (
-    <AppLayout title="Ongoing Actions" subtitle="Real-time Execution Logs">
+    <AppLayout title="Ongoing Actions" subtitle="Real time Execution Logs">
       {/* Status bar */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-4 text-xs">
@@ -648,7 +648,7 @@ function ExpandedIncidentSteps({ incidentId, incidentStatus, startTime }: { inci
                 <div className="flex items-center gap-2 font-semibold text-destructive">
                   <X size={13} />
                   {rejectedApproval?.decision_by === "system"
-                    ? "Approval auto-expired after 1 hour — execution did not run"
+                    ? "Approval auto expired after 1 hour — execution did not run"
                     : `Approval rejected by ${rejectedApproval?.decision_by ?? "operator"} — execution did not run`}
                 </div>
                 {rejectedApproval?.decision_notes && (

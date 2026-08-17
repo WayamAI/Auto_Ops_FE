@@ -74,7 +74,7 @@ export default function Agents() {
   const [deployCategory, setDeployCategory] = useState("Infrastructure");
   const [deployDesc, setDeployDesc] = useState("");
   const [deployConfidence, setDeployConfidence] = useState("85");
-  const [deployEnv, setDeployEnv] = useState("non-production");
+  const [deployEnv, setDeployEnv] = useState("non production");
 
   const getSuccessColor = (success: string) => {
     if (success === "—") return "text-muted-foreground";
@@ -116,7 +116,7 @@ export default function Agents() {
     }]);
     toast.success(`${deployName} deployed in Learning mode`, { description: "Agent will run in shadow mode until validated." });
     setShowDeploy(false);
-    setDeployName(""); setDeployDesc(""); setDeployCategory("Infrastructure"); setDeployConfidence("85"); setDeployEnv("non-production");
+    setDeployName(""); setDeployDesc(""); setDeployCategory("Infrastructure"); setDeployConfidence("85"); setDeployEnv("non production");
   };
 
   const runTest = (agentId: string) => {
@@ -300,7 +300,7 @@ export default function Agents() {
                 <div>
                   <label className="text-xs font-medium text-foreground block mb-1">Initial Environment</label>
                   <select value={deployEnv} onChange={e => setDeployEnv(e.target.value)} className="w-full h-8 rounded-md bg-secondary border border-border px-3 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-ring">
-                    <option value="non-production">Non-Production Only</option>
+                    <option value="non production">Non Production Only</option>
                     <option value="all">All Environments</option>
                   </select>
                 </div>
@@ -346,7 +346,7 @@ export default function Agents() {
               <div>
                 <label className="text-xs font-medium text-foreground block mb-1">Allowed Environments</label>
                 <div className="space-y-1.5">
-                  {["Non-Production", "Staging", "Production"].map(env => (
+                  {["Non Production", "Staging", "Production"].map(env => (
                     <label key={env} className="flex items-center gap-2 text-xs text-foreground">
                       <input type="checkbox" defaultChecked={env !== "Production"} className="rounded border-border accent-[hsl(var(--success))]" />
                       {env}

@@ -95,9 +95,9 @@ const drawerTimeline = Array.from({ length: 24 }, (_, i) => {
 const remediationHistory = [
   { date: "18 Mar", issue: "JVM heap at 87%", action: "Increased -Xmx to 2048m, restarted service", outcome: "Resolved", duration: "4m 12s" },
   { date: "11 Mar", issue: "ECC queue backlog 28 tasks", action: "Cleared error queue, restarted ECC poller", outcome: "Resolved", duration: "2m 48s" },
-  { date: "04 Mar", issue: "Discovery schedule missed × 3", action: "Triggered manual discovery re-run", outcome: "Resolved", duration: "1m 20s" },
+  { date: "04 Mar", issue: "Discovery schedule missed × 3", action: "Triggered manual discovery rerun", outcome: "Resolved", duration: "1m 20s" },
   { date: "27 Feb", issue: "MID service unresponsive (heartbeat lost)", action: "Restarted MIDServer Windows service", outcome: "Resolved", duration: "3m 05s" },
-  { date: "19 Feb", issue: "Wrapper.conf misconfiguration post-patch", action: "Restored from config backup", outcome: "Resolved", duration: "6m 44s" },
+  { date: "19 Feb", issue: "Wrapper.conf misconfiguration post patch", action: "Restored from config backup", outcome: "Resolved", duration: "6m 44s" },
 ];
 
 const relatedPatterns = [
@@ -145,7 +145,7 @@ export default function HealthMonitor() {
   const isP3 = (s: MidServer) => s.version.includes("Patch 3");
 
   return (
-    <AppLayout title="Health Monitor" subtitle="Real-time visibility across all nodes">
+    <AppLayout title="Health Monitor" subtitle="Real time visibility across all nodes">
       {/* KPI Tiles */}
       <div className="grid grid-cols-5 gap-4 mb-6">
         {kpis.map((k, i) => (

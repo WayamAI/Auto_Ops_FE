@@ -175,7 +175,7 @@ export default function ControlTower() {
   const visibleApprovals = approvals.filter(a => !dismissedApprovals.includes(a.id));
 
   return (
-    <AppLayout title="Control Tower" subtitle="Real-time autonomous remediation activity">
+    <AppLayout title="Control Tower" subtitle="Real time autonomous remediation activity">
       {/* Target Status Ribbon from Mock */}
       <div className="flex items-center gap-6 mb-6 px-1 text-[11px] font-medium tracking-tight">
         <div className="flex items-center gap-2">

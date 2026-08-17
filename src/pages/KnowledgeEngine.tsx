@@ -111,8 +111,8 @@ const insights: PredictiveInsight[] = [
     confidence: 78, action: "Flag in ServiceNow", modalType: "flag-servicenow",
     details: {
       impactedCIs: ["auth-service (Kubernetes Deployment)", "login-gateway (API Gateway)", "mobile-auth-proxy"],
-      relatedIncidents: ["INC0012401 (Mar 4) — auth outage post-deploy", "INC0011876 (Feb 12) — token validation failure", "INC0011543 (Jan 28) — session timeout regression"],
-      recommendation: "Add 30-minute enhanced monitoring post-deploy. Pre-stage rollback pipeline. Notify on-call SRE.",
+      relatedIncidents: ["INC0012401 (Mar 4) — auth outage post deploy", "INC0011876 (Feb 12) — token validation failure", "INC0011543 (Jan 28) — session timeout regression"],
+      recommendation: "Add 30-minute enhanced monitoring post deploy. Pre stage rollback pipeline. Notify on call SRE.",
       riskLevel: "High",
       timeline: "Deployment scheduled: Tonight 11:00 PM EST",
     }
@@ -192,7 +192,7 @@ export default function KnowledgeEngine() {
             <p className="text-xs text-muted-foreground">
               {activeModal === "change-request" && "CHG0004601 — Increase JVM heap on prod-mid-03. Assigned to: Server Team. Priority: P3"}
               {activeModal === "preventive-remediation" && "ACT-PRV-042 — Disk cleanup on prod-db-01. ETA: 3 minutes. Agent: Infrastructure Agent"}
-              {activeModal === "flag-servicenow" && "Risk note attached to CHG0004599. Deployment team and on-call SRE notified via ServiceNow."}
+              {activeModal === "flag-servicenow" && "Risk note attached to CHG0004599. Deployment team and on call SRE notified via ServiceNow."}
             </p>
           </div>
           <button onClick={closeModal} className="h-8 px-4 rounded text-xs font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors mt-2">
@@ -305,9 +305,9 @@ export default function KnowledgeEngine() {
               <p><span className="font-medium text-destructive">Risk Score:</span> 7.2 / 10 (based on 3 correlated past incidents)</p>
               <p><span className="font-medium text-foreground">Recommended Actions:</span></p>
               <ul className="list-disc ml-4 space-y-0.5">
-                <li>Enable enhanced monitoring for 30 minutes post-deploy</li>
-                <li>Pre-stage rollback pipeline with one-click revert</li>
-                <li>Notify on-call SRE (currently: @jchen) before deployment</li>
+                <li>Enable enhanced monitoring for 30 minutes post deploy</li>
+                <li>Pre stage rollback pipeline with one-click revert</li>
+                <li>Notify on call SRE (currently: @jchen) before deployment</li>
                 <li>Verify health checks within 5 minutes of deploy completion</li>
               </ul>
               <p><span className="font-medium text-foreground">Attach to:</span> CHG0004599 — auth-service deployment</p>

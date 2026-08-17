@@ -33,12 +33,12 @@ const patterns = [
 const availableTools = [
   { name: "AWS CloudWatch — aws-monitoring", desc: "CloudWatch metrics and log access for AWS resources", category: "Cloud" },
   { name: "Kubernetes API — k8s-prod", desc: "Access to production Kubernetes cluster for pod/deployment management", category: "Infrastructure" },
-  { name: "Database Access — prod-databases", desc: "Read-only access to production database instances", category: "Data" },
+  { name: "Database Access — prod-databases", desc: "Read only access to production database instances", category: "Data" },
   { name: "Windows WinRM — windows-servers", desc: "Remote management of Windows Server instances", category: "Infrastructure" },
   { name: "SNMP Polling — network-devices", desc: "SNMP v3 read access for network device monitoring", category: "Network" },
   { name: "HashiCorp Vault — vault-prod", desc: "Credential retrieval from production Vault instance", category: "Security" },
-  { name: "Ansible Playbooks — ansible-runner", desc: "Execute pre-approved Ansible playbooks on target hosts", category: "Automation" },
-  { name: "Jira API — jira-integration", desc: "Create and update Jira tickets for cross-team coordination", category: "Operations" },
+  { name: "Ansible Playbooks — ansible-runner", desc: "Execute pre approved Ansible playbooks on target hosts", category: "Automation" },
+  { name: "Jira API — jira-integration", desc: "Create and update Jira tickets for cross team coordination", category: "Operations" },
 ];
 
 const discoveredPatterns = [
@@ -71,9 +71,9 @@ const discoveredPatterns = [
       "5 of 8 recent MID Server incidents occurred within 2 hours of ServiceNow platform updates",
       "Correlation coefficient: 0.72 (strong positive correlation)",
       "Affected updates: Orlando Patch 4, Orlando Patch 5, Orlando Patch 6",
-      "Non-correlated incidents had different root causes (network, config drift)",
+      "Non correlated incidents had different root causes (network, config drift)",
     ],
-    proposedAction: "Add a pre-upgrade health check for all MID Servers before ServiceNow platform updates. Automatically increase monitoring frequency during upgrade windows. Create a Change Risk rule in ServiceNow to flag MID Server risk during platform updates.",
+    proposedAction: "Add a pre upgrade health check for all MID Servers before ServiceNow platform updates. Automatically increase monitoring frequency during upgrade windows. Create a Change Risk rule in ServiceNow to flag MID Server risk during platform updates.",
     riskAssessment: "N/A — This is a monitoring/alerting enhancement, no infrastructure changes required.",
   },
 ];
@@ -361,8 +361,8 @@ export default function AgentDetail() {
       {activeTab === "Decision Logic" && (
         <div className="space-y-4">
           {[
-            { tier: "Tier 1 — Fully Autonomous", color: "border-success/30 bg-success/5", conditions: ["Confidence > 85%", "Environment = Non-Production", "Risk = Low", "NOT during change freeze"] },
-            { tier: "Tier 2 — Human-Approved", color: "border-warning/30 bg-warning/5", conditions: ["Confidence 60-85%", "OR Environment = Production", "OR Risk = Medium"] },
+            { tier: "Tier 1 — Fully Autonomous", color: "border-success/30 bg-success/5", conditions: ["Confidence > 85%", "Environment = Non Production", "Risk = Low", "NOT during change freeze"] },
+            { tier: "Tier 2 — Human Approved", color: "border-warning/30 bg-warning/5", conditions: ["Confidence 60-85%", "OR Environment = Production", "OR Risk = Medium"] },
             { tier: "Tier 3 — Recommend Only", color: "border-info/30 bg-info/5", conditions: ["Confidence < 60%", "OR Risk = High", "OR During change freeze", "OR Novel incident (no matching pattern)"] },
           ].map(t => (
             <div key={t.tier} className={`rounded-lg border p-4 ${t.color}`}>

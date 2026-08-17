@@ -27,7 +27,7 @@ const blastRadiusMap: Record<string, BlastRadiusData> = {
       { time: "10:18:04", source: "Windows Event Log", severity: "Error", desc: "AppLocker: Block — agent\\bin\\wrapper.exe replacement denied" },
       { time: "10:50:12", source: "ECC Queue Monitor", severity: "Warning", desc: "34 output records stuck in Ready state > 10min" },
       { time: "11:01:45", source: "Discovery Schedule", severity: "Error", desc: "London DC discovery schedule timeout — no MID Server response" },
-      { time: "11:02:33", source: "ServiceNow Alert", severity: "Critical", desc: "INC0012815 auto-created — MID Server version mismatch detected" },
+      { time: "11:02:33", source: "ServiceNow Alert", severity: "Critical", desc: "INC0012815 auto created — MID Server version mismatch detected" },
     ],
   },
   INC0012823: {
@@ -48,7 +48,7 @@ const blastRadiusMap: Record<string, BlastRadiusData> = {
       { time: "11:02:00", source: "ECC Queue Monitor", severity: "Critical", desc: "247 records stuck in Ready — oldest 12 min" },
       { time: "11:04:22", source: "Discovery Schedule", severity: "Error", desc: "APAC-SG, APAC-HK, APAC-TK schedules all timed out" },
       { time: "11:06:18", source: "Network Monitor", severity: "Warning", desc: "RTT to APAC targets avg 340ms (baseline 80ms)" },
-      { time: "11:08:15", source: "ServiceNow Alert", severity: "Critical", desc: "INC0012823 auto-created — ECC Queue backlog critical" },
+      { time: "11:08:15", source: "ServiceNow Alert", severity: "Critical", desc: "INC0012823 auto created — ECC Queue backlog critical" },
     ],
   },
   INC0012798: {

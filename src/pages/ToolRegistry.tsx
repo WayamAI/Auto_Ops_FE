@@ -41,7 +41,7 @@ const defaultProfiles: Profile[] = [
   { name: "k8s-prod", type: "Kubernetes API", icon: Container, status: "connected", cis: 45, lastUsed: "1m ago", vault: "Service Account Token", host: "k8s-api.prod.internal", port: "6443", timeout: "10s" },
   { name: "prod-databases", type: "Database", icon: Database, status: "connected", cis: 23, lastUsed: "5m ago", vault: "HashiCorp Vault", host: "*.db.prod.internal", port: "5432", timeout: "10s" },
   { name: "windows-servers", type: "Windows (WinRM)", icon: Settings, status: "connected", cis: 31, lastUsed: "4m ago", vault: "Kerberos", host: "*.win.prod.internal", port: "5985", timeout: "60s" },
-  { name: "credential-vault", type: "HashiCorp Vault", icon: Key, status: "connected", cis: 14, lastUsed: "12s ago", vault: "Vault Token (auto-rotating, 24h TTL)", host: "corp-vault-01.internal:8200", port: "8200", timeout: "15s" },
+  { name: "credential-vault", type: "HashiCorp Vault", icon: Key, status: "connected", cis: 14, lastUsed: "12s ago", vault: "Vault Token (auto rotating, 24h TTL)", host: "corp-vault-01.internal:8200", port: "8200", timeout: "15s" },
   { name: "servicenow-prod", type: "Custom REST API (ServiceNow)", icon: Globe, status: "connected", cis: null, lastUsed: "4s ago", vault: "OAuth 2.0", host: "company.service-now.com", port: "443", timeout: "15s" },
   { name: "network-devices", type: "SNMP", icon: Radio, status: "connected", cis: 56, lastUsed: "8m ago", vault: "SNMPv3", host: "*.net.prod.internal", port: "161", timeout: "30s" },
 ];
@@ -128,7 +128,7 @@ export default function ToolRegistry() {
   // Edit action form
   const [editActionForm, setEditActionForm] = useState({ name: "", desc: "", risk: "Low" });
 
-  const tabs = ["Access Profiles", "Action Library", "Agent-Tool Mapping"];
+  const tabs = ["Access Profiles", "Action Library", "Agent Tool Mapping"];
   const riskColors: Record<string, string> = { Low: "active", Medium: "warning", High: "error" };
   const packHeaders = packs.map(p => p.name.replace(" Tools", ""));
 
@@ -237,7 +237,7 @@ export default function ToolRegistry() {
     { time: "10:44:12", level: "INFO", msg: "Health check passed — latency: 23ms" },
     { time: "10:43:30", level: "INFO", msg: "Connection pool refreshed (4 active connections)" },
     { time: "10:40:15", level: "INFO", msg: "Credential rotation completed" },
-    { time: "10:38:00", level: "DEBUG", msg: "Keep-alive ping — response: 18ms" },
+    { time: "10:38:00", level: "DEBUG", msg: "Keep alive ping — response: 18ms" },
     { time: "10:35:45", level: "INFO", msg: "Agent [execution] used this profile for midserver_start" },
     { time: "10:30:12", level: "WARN", msg: "Connection latency elevated: 450ms (threshold: 500ms)" },
     { time: "10:25:00", level: "INFO", msg: "Scheduled health check passed" },
@@ -289,7 +289,7 @@ export default function ToolRegistry() {
             <Plus size={12} /> Create Action
           </button>
         )}
-        {activeTab === "Agent-Tool Mapping" && (
+        {activeTab === "Agent Tool Mapping" && (
           <button onClick={() => { setEditMapping(!editMapping); if (editMapping) toast.success("Mappings saved"); }} className={`h-8 px-4 rounded-md text-xs font-medium transition-colors self-center mb-2 ${editMapping ? "bg-success text-success-foreground" : "bg-secondary text-foreground border border-border"}`}>
             {editMapping ? "Save Mappings" : "Edit Mappings"}
           </button>
@@ -392,13 +392,13 @@ export default function ToolRegistry() {
       )}
 
       {/* ===== AGENT-TOOL MAPPING ===== */}
-      {activeTab === "Agent-Tool Mapping" && (toolsLoading || agentsLoading) && (
+      {activeTab === "Agent Tool Mapping" && (toolsLoading || agentsLoading) && (
         <div className="flex items-center justify-center p-12 text-muted-foreground text-sm gap-2"><Loader2 size={16} className="animate-spin" /> Loading agent-tool mapping from backend...</div>
       )}
-      {activeTab === "Agent-Tool Mapping" && !toolsLoading && !agentsLoading && Object.keys(mapping).length === 0 && (
+      {activeTab === "Agent Tool Mapping" && !toolsLoading && !agentsLoading && Object.keys(mapping).length === 0 && (
         <div className="flex items-center justify-center p-12 text-muted-foreground text-sm">No mapping data. Make sure the backend is running on port 8000.</div>
       )}
-      {activeTab === "Agent-Tool Mapping" && !toolsLoading && !agentsLoading && Object.keys(mapping).length > 0 && (
+      {activeTab === "Agent Tool Mapping" && !toolsLoading && !agentsLoading && Object.keys(mapping).length > 0 && (
         <div className="bg-card rounded-md border border-border/40 overflow-hidden shadow-sm">
           {editMapping && (
             <div className="px-4 py-2.5 border-b border-border bg-info/5 text-xs text-info flex items-center gap-2">
