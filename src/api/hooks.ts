@@ -23,6 +23,7 @@ import type {
   ApprovalDecisionRequest,
   SSEEvent,
 } from "./types";
+import { isDemoMode } from "@/lib/demoMode";
 
 // ── Query Keys ───────────────────────────────────────────────────────────────
 
@@ -382,6 +383,10 @@ export function useIncidentStream(incidentId?: string | null) {
 
   useEffect(() => {
     if (!incidentId) return;
+    // In demo mode there is no live backend to stream from — restDetail (from
+    // the demo data provider) already has the full picture, so skip the raw
+    // SSE fetch rather than let its placeholder data override real fields.
+    if (isDemoMode()) return;
 
     let abortController = new AbortController();
     let isMounted = true;

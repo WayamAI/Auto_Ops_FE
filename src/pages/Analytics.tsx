@@ -148,10 +148,10 @@ export default function Analytics() {
             </table>
           </div>
 
-          {/* MID Server Self-Healing ROI */}
+          {/* MID Server Self Healing ROI */}
           <div className="bg-card rounded-md border border-border/40 overflow-hidden shadow-sm">
             <div className="px-5 py-4 border-b border-border/40 bg-secondary/20">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-foreground/80">Use Case Breakdown — MID Server Self-Healing</h3>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-foreground/80">Use Case Breakdown — MID Server Self Healing</h3>
               <p className="text-[10px] text-muted-foreground/60 font-medium">Based on 30-day automated handling of MID Server incidents</p>
             </div>
             <table className="w-full">
@@ -311,13 +311,13 @@ export default function Analytics() {
                 <div className="w-24 bg-success rounded-t-lg flex items-end justify-center" style={{ height: 120 }}>
                   <span className="text-xs font-bold text-success-foreground mb-2">3m 42s</span>
                 </div>
-                <p className="text-xs text-muted-foreground mt-2">Agent-Resolved</p>
+                <p className="text-xs text-muted-foreground mt-2">Agent Resolved</p>
               </div>
               <div className="text-center">
                 <div className="w-24 bg-muted rounded-t-lg flex items-end justify-center" style={{ height: 280 }}>
                   <span className="text-xs font-bold text-muted-foreground mb-2">38m 15s</span>
                 </div>
-                <p className="text-xs text-muted-foreground mt-2">Human-Resolved</p>
+                <p className="text-xs text-muted-foreground mt-2">Human Resolved</p>
               </div>
             </div>
           </div>

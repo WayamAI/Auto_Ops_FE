@@ -291,7 +291,7 @@ export default function Agents() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs font-medium text-foreground block mb-1">Auto-Execute Threshold</label>
+                  <label className="text-xs font-medium text-foreground block mb-1">Auto Execute Threshold</label>
                   <div className="flex items-center gap-2">
                     <input type="range" min="50" max="100" value={deployConfidence} onChange={e => setDeployConfidence(e.target.value)} className="flex-1 accent-[hsl(var(--success))]" />
                     <span className="text-xs font-mono text-foreground w-10">{deployConfidence}%</span>
@@ -337,7 +337,7 @@ export default function Agents() {
                 </select>
               </div>
               <div>
-                <label className="text-xs font-medium text-foreground block mb-1">Auto-Execute Confidence Threshold</label>
+                <label className="text-xs font-medium text-foreground block mb-1">Auto Execute Confidence Threshold</label>
                 <div className="flex items-center gap-2">
                   <input type="range" min="50" max="100" defaultValue="85" className="flex-1 accent-[hsl(var(--success))]" />
                   <span className="text-xs font-mono text-foreground w-10">85%</span>

@@ -191,7 +191,7 @@ export default function SettingsPage() {
           </div>
 
           <div className="bg-card rounded-md border border-border/40 overflow-hidden shadow-sm">
-            <div className="px-5 py-4 border-b border-border/40 bg-secondary/20"><h3 className="text-xs font-bold uppercase tracking-widest text-foreground/80">Write-Back Configuration</h3></div>
+            <div className="px-5 py-4 border-b border-border/40 bg-secondary/20"><h3 className="text-xs font-bold uppercase tracking-widest text-foreground/80">Write Back Configuration</h3></div>
             <table className="w-full">
               <thead><tr className="border-b border-border text-[10px] text-muted-foreground uppercase tracking-wider">
                 <th className="px-4 py-2 text-left">Type</th><th className="px-4 py-2 text-left">Enabled</th><th className="px-4 py-2 text-left">Description</th>
@@ -224,7 +224,7 @@ export default function SettingsPage() {
             </ul>
           </div>
           <div className="rounded-lg border border-warning/30 bg-warning/5 p-4">
-            <h3 className="text-sm font-semibold text-warning mb-2">Tier 2 — Human-Approved</h3>
+            <h3 className="text-sm font-semibold text-warning mb-2">Tier 2 — Human Approved</h3>
             <p className="text-xs text-muted-foreground mb-2">Agent prepares action and requests approval when:</p>
             <ul className="space-y-1 text-xs text-muted-foreground">
               <li>• Confidence: <span className="text-foreground font-medium">60% — 85%</span></li>
@@ -408,7 +408,7 @@ export default function SettingsPage() {
             <h3 className="text-xs font-bold uppercase tracking-widest text-foreground/80 mb-4">Rotation Policy</h3>
             <div className="grid grid-cols-3 gap-4 text-xs">
               <div className="space-y-1">
-                <span className="text-muted-foreground">Auto-Rotation</span>
+                <span className="text-muted-foreground">Auto Rotation</span>
                 <p className="text-foreground font-medium">Enabled — every 90 days</p>
               </div>
               <div className="space-y-1">
@@ -490,7 +490,7 @@ export default function SettingsPage() {
             <div className="space-y-2 text-xs">
               <div className="flex items-center justify-between py-1.5 border-b border-border">
                 <span className="text-muted-foreground">No acknowledgement within</span>
-                <span className="text-foreground font-medium">5 minutes → re-notify + escalate to on-call lead</span>
+                <span className="text-foreground font-medium">5 minutes → renotify + escalate to on call lead</span>
               </div>
               <div className="flex items-center justify-between py-1.5 border-b border-border">
                 <span className="text-muted-foreground">Approval timeout</span>

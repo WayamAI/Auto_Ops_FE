@@ -151,7 +151,7 @@ export default function ControlTower() {
       { approvalId: approval.id, data: { decision: "rejected", notes: "Rejected from Control Tower — escalated", decided_by: currentUser } },
       {
         onSuccess: () => {
-          toast.error(`Rejected — escalated to on-call engineer`);
+          toast.error(`Rejected — escalated to on call engineer`);
           setDismissedApprovals(prev => [...prev, approval.id]);
         },
       },
@@ -270,7 +270,7 @@ export default function ControlTower() {
             <div className="flex items-center gap-2">
               <h2 className="text-xs font-bold uppercase tracking-widest text-foreground/80">Live Activity</h2>
               <span className="status-dot-green animate-pulse-soft" />
-              <span className="text-[10px] text-muted-foreground/60 font-medium">AUTO-REFRESH ENABLED</span>
+              <span className="text-[10px] text-muted-foreground/60 font-medium">AUTO REFRESH ENABLED</span>
             </div>
           </div>
           <div className="divide-y divide-border/20 max-h-[440px] overflow-y-auto custom-scrollbar">
@@ -395,7 +395,7 @@ export default function ControlTower() {
             <span className="text-sm text-muted-foreground">Value generated today</span>
             <ArrowUpRight size={14} className="text-success" />
           </div>
-          <p className="text-xs text-muted-foreground">39 incidents auto-resolved × $336 avg manual cost</p>
+          <p className="text-xs text-muted-foreground">39 incidents auto resolved × $336 avg manual cost</p>
         </div>
       </div>
 
@@ -484,7 +484,7 @@ export default function ControlTower() {
                 <div className="p-3 rounded bg-destructive/10 border border-destructive/20 text-xs text-muted-foreground space-y-1">
                   <p className="font-medium text-destructive">What happens on rejection:</p>
                   <p>• The pipeline will stop and not execute this action</p>
-                  <p>• The incident will be escalated to the on-call engineer</p>
+                  <p>• The incident will be escalated to the on call engineer</p>
                   <p>• The agent will log this outcome for future learning</p>
                 </div>
               )}

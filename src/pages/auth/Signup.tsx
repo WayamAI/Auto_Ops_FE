@@ -89,7 +89,7 @@ export default function Signup() {
           <div className="grid grid-cols-2 gap-4 pt-4">
             <div className="p-4 rounded-xl bg-secondary/30 border border-border/50 text-left">
               <p className="text-xl font-bold text-foreground">Secure</p>
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Enterprise-Grade Security</p>
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Enterprise Grade Security</p>
             </div>
             <div className="p-4 rounded-xl bg-secondary/30 border border-border/50 text-left">
               <p className="text-xl font-bold text-foreground">Scalable</p>

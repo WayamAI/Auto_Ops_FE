@@ -159,7 +159,7 @@ export default function HealthMonitor() {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <span className="status-dot-green animate-pulse-soft" />
-          <span className="text-[10px] text-muted-foreground">Auto-refresh ON · 5s interval</span>
+          <span className="text-[10px] text-muted-foreground">Auto refresh ON · 5s interval</span>
           {statusFilter !== "all" && (
             <button onClick={() => setStatusFilter("all")} className="text-[10px] text-primary hover:underline ml-2">Clear filter</button>
           )}
@@ -245,7 +245,7 @@ export default function HealthMonitor() {
               {isP3(drawerServer) && (
                 <div className="mt-2 p-2 rounded bg-warning/10 border border-warning/20 text-[10px] text-warning">
                   <p className="font-medium">⚠ Quebec Patch 3 detected — Patch 4 available</p>
-                  <p className="text-muted-foreground mt-0.5">Known issues on P3: wrapper.exe binary lock during auto-upgrade on Windows GPO environments · ECC thread pool cap at 25 (increased to 50 in P4)</p>
+                  <p className="text-muted-foreground mt-0.5">Known issues on P3: wrapper.exe binary lock during auto upgrade on Windows GPO environments · ECC thread pool cap at 25 (increased to 50 in P4)</p>
                   <button onClick={() => toast.info("Upgrade schedule sent to MID Server Agent")} className="mt-1 px-2 py-0.5 rounded text-[10px] font-medium bg-warning/20 text-warning border border-warning/30 hover:bg-warning/30">
                     Schedule Upgrade via Agent →
                   </button>

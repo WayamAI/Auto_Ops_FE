@@ -166,7 +166,7 @@ export default function Actions() {
           <div className="flex items-center gap-1.5"><span className="status-dot-blue" /><span className="text-muted-foreground">Completed: <span className="text-foreground font-medium">{completedCount}</span></span></div>
         </div>
         <div className="flex gap-2">
-          <button className="h-7 px-3 rounded text-[10px] font-medium bg-success/15 text-success border border-success/20">Auto-Refresh ON</button>
+          <button className="h-7 px-3 rounded text-[10px] font-medium bg-success/15 text-success border border-success/20">Auto Refresh ON</button>
         </div>
       </div>
 
@@ -275,7 +275,7 @@ export default function Actions() {
                       View Logs
                     </button>
                     <button
-                      onClick={() => setBlastRadiusIncident(action.incidentId)}
+                      onClick={() => setBlastRadiusIncident(action.incident_number || action.incidentId)}
                       className="h-7 px-3 rounded text-[10px] font-medium bg-warning/15 text-warning border border-warning/20"
                     >
                       Blast Radius

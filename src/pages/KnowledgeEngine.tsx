@@ -306,7 +306,7 @@ export default function KnowledgeEngine() {
               <p><span className="font-medium text-foreground">Recommended Actions:</span></p>
               <ul className="list-disc ml-4 space-y-0.5">
                 <li>Enable enhanced monitoring for 30 minutes post deploy</li>
-                <li>Pre stage rollback pipeline with one-click revert</li>
+                <li>Pre stage rollback pipeline with one click revert</li>
                 <li>Notify on call SRE (currently: @jchen) before deployment</li>
                 <li>Verify health checks within 5 minutes of deploy completion</li>
               </ul>
@@ -563,7 +563,7 @@ export default function KnowledgeEngine() {
       {activeTab === "Predictive Insights" && (
         <div className="space-y-4">
           <div className="flex items-center justify-between mb-2">
-            <p className="text-xs text-muted-foreground">AI-generated predictions based on pattern analysis and trend monitoring</p>
+            <p className="text-xs text-muted-foreground">AI generated predictions based on pattern analysis and trend monitoring</p>
             <div className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
               <span className="text-[10px] text-muted-foreground">Live monitoring active</span>

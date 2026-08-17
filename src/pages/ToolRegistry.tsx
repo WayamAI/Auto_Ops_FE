@@ -94,7 +94,7 @@ export default function ToolRegistry() {
     }));
   })() : [];
 
-  // Build agent-tool mapping matrix from backend data
+  // Build agent tool mapping matrix from backend data
   const mapping: Record<string, boolean[]> = apiAgents && packs.length > 0 ? (() => {
     const m: Record<string, boolean[]> = {};
     for (const agent of apiAgents) {
@@ -393,7 +393,7 @@ export default function ToolRegistry() {
 
       {/* ===== AGENT-TOOL MAPPING ===== */}
       {activeTab === "Agent Tool Mapping" && (toolsLoading || agentsLoading) && (
-        <div className="flex items-center justify-center p-12 text-muted-foreground text-sm gap-2"><Loader2 size={16} className="animate-spin" /> Loading agent-tool mapping from backend...</div>
+        <div className="flex items-center justify-center p-12 text-muted-foreground text-sm gap-2"><Loader2 size={16} className="animate-spin" /> Loading agent tool mapping from backend...</div>
       )}
       {activeTab === "Agent Tool Mapping" && !toolsLoading && !agentsLoading && Object.keys(mapping).length === 0 && (
         <div className="flex items-center justify-center p-12 text-muted-foreground text-sm">No mapping data. Make sure the backend is running on port 8000.</div>
@@ -608,7 +608,7 @@ export default function ToolRegistry() {
         <Modal title={`Dry Run: ${showTestAction.name}`} onClose={() => { if (!testRunning) setShowTestAction(null); }}>
           <div className="space-y-3">
             <div className="p-3 rounded-md bg-secondary/50 border border-border">
-              <p className="text-xs text-muted-foreground">Running dry-run test for <span className="font-mono text-foreground">{showTestAction.name}</span></p>
+              <p className="text-xs text-muted-foreground">Running dry run test for <span className="font-mono text-foreground">{showTestAction.name}</span></p>
               <p className="text-[10px] text-muted-foreground mt-1">Risk level: <StatusBadge variant={riskColors[showTestAction.risk] as any} label={showTestAction.risk} /></p>
             </div>
             {actionTestLabels.map((label, i) => (

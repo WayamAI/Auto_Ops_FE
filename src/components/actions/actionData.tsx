@@ -217,12 +217,12 @@ const _allActions: ActionItem[] = [
         title: "Remediation Planning", time: "10:39:15 AM", status: "done",
         content: (
           <div className="space-y-2">
-            <p className="text-xs text-foreground font-medium">Strategy: Revert firewall rule ACL-4821 to pre-maintenance state</p>
+            <p className="text-xs text-foreground font-medium">Strategy: Revert firewall rule ACL-4821 to pre maintenance state</p>
             <p className="text-xs text-warning font-medium">⚠ Requires approval — Production network change with medium confidence (72%)</p>
             <WhyPanel title="Why Approval Required?">
               <p>Two policy triggers:</p>
               <ul className="list-disc ml-4 space-y-1">
-                <li>Confidence 72% is below auto-execute threshold (85%)</li>
+                <li>Confidence 72% is below auto execute threshold (85%)</li>
                 <li>Production network changes always require approval per policy</li>
               </ul>
               <p className="mt-1">Blast radius: 3 downstream services — payment-api, checkout-web, mobile-gateway</p>
@@ -284,7 +284,7 @@ const _allActions: ActionItem[] = [
         title: "Root Cause Analysis", time: "10:35:28 AM", status: "done",
         content: (
           <div className="space-y-2">
-            <p className="text-xs text-foreground font-medium">Certificate CN=api.example.com expires March 31, 2026. Auto-renewal failed due to DNS validation timeout.</p>
+            <p className="text-xs text-foreground font-medium">Certificate CN=api.example.com expires March 31, 2026. Auto renewal failed due to DNS validation timeout.</p>
             <div className="flex items-center gap-2">
               <span className="text-xs text-muted-foreground">Confidence:</span>
               <StatusBadge variant="active" label="91% — High" />
@@ -297,7 +297,7 @@ const _allActions: ActionItem[] = [
         content: (
           <div className="space-y-2">
             <p className="text-xs text-foreground font-medium">Strategy: Trigger manual cert renewal via Let's Encrypt and update DNS TXT record</p>
-            <p className="text-xs text-warning font-medium">⚠ Requires approval — Certificate operations require human sign-off per security policy</p>
+            <p className="text-xs text-warning font-medium">⚠ Requires approval — Certificate operations require human sign off per security policy</p>
           </div>
         )
       },
@@ -501,7 +501,7 @@ const _allActions: ActionItem[] = [
         content: (
           <div className="space-y-1 text-xs text-muted-foreground">
             <StatusBadge variant="completed" label="Success" />
-            <p className="mt-1">Cache flushed and re-warmed. Hit rate restored to 91% within 60s.</p>
+            <p className="mt-1">Cache flushed and rewarmed. Hit rate restored to 91% within 60s.</p>
           </div>
         )
       },
@@ -620,7 +620,7 @@ const _allActions: ActionItem[] = [
         title: "Root Cause Analysis", time: "11:02:52 AM", status: "done",
         content: (
           <div className="space-y-2">
-            <p className="text-xs text-foreground font-medium">Conclusion: File permission lock on agent/bin folder — GPO "AppLocker" policy prevented wrapper.exe replacement during auto-upgrade. Local binary version (Vancouver) mismatches database version (Washington), causing task rejection.</p>
+            <p className="text-xs text-foreground font-medium">Conclusion: File permission lock on agent/bin folder — GPO "AppLocker" policy prevented wrapper.exe replacement during auto upgrade. Local binary version (Vancouver) mismatches database version (Washington), causing task rejection.</p>
             <div className="flex items-center gap-2">
               <span className="text-xs text-muted-foreground">Confidence:</span>
               <StatusBadge variant="active" label="91% — High" />
@@ -644,7 +644,7 @@ const _allActions: ActionItem[] = [
         title: "Remediation Planning", time: "11:03:18 AM", status: "done",
         content: (
           <div className="space-y-2">
-            <p className="text-xs text-foreground font-medium">Strategy: Stop MID Server service, grant Full Control to service account, clear work/temp dirs, restart to trigger auto-upgrade re-sync. Risk: Low</p>
+            <p className="text-xs text-foreground font-medium">Strategy: Stop MID Server service, grant Full Control to service account, clear work/temp dirs, restart to trigger auto upgrade resync. Risk: Low</p>
             <WhyPanel title="Why This Strategy?">
               <p>Historical data: 8 of 9 past "Zombie Upgrade" incidents resolved by permission fix + cache clear + restart</p>
               <p className="mt-1">Risk: Low — only affects MID Server functions during restart window (~90s)</p>
@@ -736,7 +736,7 @@ const _allActions: ActionItem[] = [
         content: (
           <div className="space-y-2">
             <p className="text-xs text-foreground font-medium">Strategy: Increase JVM memory to 4GB, raise mid.threads.max to 50, implement MID Server cluster for APAC site load balancing</p>
-            <p className="text-xs text-warning font-medium">⚠ Requires approval — JVM memory allocation change on production MID Server requires human sign-off per change policy</p>
+            <p className="text-xs text-warning font-medium">⚠ Requires approval — JVM memory allocation change on production MID Server requires human sign off per change policy</p>
             <WhyPanel title="Why Approval Required?">
               <p>Two policy triggers:</p>
               <ul className="list-disc ml-4 space-y-1">
@@ -754,7 +754,7 @@ const _allActions: ActionItem[] = [
         content: (
           <div className="text-xs text-warning space-y-1">
             <p className="font-medium">⏳ Waiting for human approval to increase JVM memory allocation (-Xmx 2GB → 4GB) and thread pool (25 → 50)</p>
-            <p className="text-muted-foreground">Elapsed wait: 4m 17s · Policy: Production MID Server config changes require human-in-the-loop</p>
+            <p className="text-muted-foreground">Elapsed wait: 4m 17s · Policy: Production MID Server config changes require human in the loop</p>
           </div>
         )
       },
@@ -863,7 +863,7 @@ const credentialExpiryAction: ActionItem = {
           <p className="text-xs text-muted-foreground">Heartbeat: Resumed — int-mid-03 reporting green (6s ago)</p>
           <p className="text-xs text-muted-foreground">ECC Queue: All 6 JDBC jobs transitioned from Ready to Processing</p>
           <p className="text-xs text-muted-foreground">Credential: Valid · New expiry: 90 days from now</p>
-          <p className="text-xs text-success">Auto-resolved: INC0012801 closed with resolution notes written to ServiceNow</p>
+          <p className="text-xs text-success">Auto resolved: INC0012801 closed with resolution notes written to ServiceNow</p>
         </div>
       )
     },

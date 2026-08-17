@@ -171,7 +171,7 @@ export default function Profile() {
                     <ShieldCheck size={18} className="text-primary mt-0.5" />
                     <div>
                       <h4 className="text-sm font-bold text-foreground">Verified Account</h4>
-                      <p className="text-[12px] text-muted-foreground mt-1">Your account is secured with enterprise-grade encryption.</p>
+                      <p className="text-[12px] text-muted-foreground mt-1">Your account is secured with enterprise grade encryption.</p>
                     </div>
                   </div>
                 </div>
@@ -246,7 +246,7 @@ export default function Profile() {
                 <div className="pt-8 border-t border-border/40">
                   <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground/40 mb-6 flex items-center gap-2">
                     <span className="w-8 h-[1px] bg-border/40" />
-                    Read-only Contact Info
+                    Read only Contact Info
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-2">

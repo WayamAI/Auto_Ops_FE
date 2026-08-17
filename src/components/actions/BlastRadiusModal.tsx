@@ -100,7 +100,26 @@ const statusDots: Record<string, string> = {
 
 export default function BlastRadiusModal({ incidentId, onClose }: { incidentId: string; onClose: () => void }) {
   const data = blastRadiusMap[incidentId];
-  if (!data) return null;
+
+  if (!data) {
+    return (
+      <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50" onClick={onClose}>
+        <div className="bg-card border border-border rounded-lg w-[420px] p-5" onClick={e => e.stopPropagation()}>
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <AlertTriangle size={16} className="text-warning" />
+              <h3 className="text-sm font-semibold">Impact Analysis — {incidentId}</h3>
+            </div>
+            <button onClick={onClose} className="text-muted-foreground hover:text-foreground"><X size={14} /></button>
+          </div>
+          <p className="text-xs text-muted-foreground">
+            No downstream CMDB dependency map has been generated for this incident yet. Impact analysis becomes
+            available once the RCA agent correlates affected configuration items.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const affectedCount = data.downstream.filter(n => n.status === "affected").length;
   const atRiskCount = data.downstream.filter(n => n.status === "at-risk").length;
