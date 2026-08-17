@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import NotificationDropdown from "./NotificationDropdown";
 import { ThemeToggle } from "../theme-toggle";
-
-const DEFAULT_AVATAR = "https://j2wdevstorage01.blob.core.windows.net/autoopscontainer/e8b531f5d8524c2da6644c71ab79583d_UserAvatar.svg";
+import DEFAULT_AVATAR from "@/assets/default-avatar.svg";
 
 interface TopBarProps {
   title: string;

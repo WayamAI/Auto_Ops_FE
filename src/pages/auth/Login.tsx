@@ -10,7 +10,7 @@ import { isDemoMode } from "@/lib/demoMode";
 import { toast } from "sonner";
 import { Eye, EyeOff } from "lucide-react";
 import Lottie from "lottie-react";
-import logo from "@/assets/j2w wh logo.png";
+import WayamLogo from "@/components/WayamLogo";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -123,7 +123,7 @@ export default function Login() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 bg-background relative">
         <div className="w-full max-w-md space-y-10 animate-slide-up">
           <div className="flex flex-col items-center text-center space-y-6">
-            <img src={logo} alt="Wayam AI" className="h-10 w-auto object-contain mb-2" />
+            <WayamLogo alt="Wayam AI" className="h-10 w-auto object-contain mb-2" />
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tight text-foreground">Welcome Back</h2>
               <p className="text-muted-foreground">Enter your credentials to access your dashboard</p>

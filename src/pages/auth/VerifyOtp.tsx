@@ -7,7 +7,7 @@ import { authService } from "@/api/auth";
 import { useAuth } from "@/context/AuthContext";
 import { toast } from "sonner";
 import Lottie from "lottie-react";
-import logo from "@/assets/j2w wh logo.png";
+import WayamLogo from "@/components/WayamLogo";
 
 export default function VerifyOtp() {
   const [otp, setOtp] = useState("");
@@ -130,7 +130,7 @@ export default function VerifyOtp() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 bg-background relative">
         <div className="w-full max-w-md space-y-10 animate-slide-up">
           <div className="flex flex-col items-center text-center space-y-6">
-            <img src={logo} alt="AutoOps Logo" className="h-12 w-auto object-contain mb-2" />
+            <WayamLogo alt="Wayam AI" className="h-10 w-auto object-contain mb-2" />
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tight text-foreground">Verify Identity</h2>
               <p className="text-muted-foreground">

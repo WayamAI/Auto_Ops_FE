@@ -17,12 +17,12 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/j2w wh logo.png";
+import WayamLogo from "@/components/WayamLogo";
+import wayamMark from "@/assets/wayam/wayam-favicon.svg";
 import { usePendingApprovals } from "@/api/hooks";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
-
-const DEFAULT_AVATAR = "https://j2wdevstorage01.blob.core.windows.net/autoopscontainer/e8b531f5d8524c2da6644c71ab79583d_UserAvatar.svg";
+import DEFAULT_AVATAR from "@/assets/default-avatar.svg";
 
 const navItems = [
   { path: "/", label: "Control Tower", icon: Radar, code: "CONTROL_TOWER" },
@@ -79,7 +79,7 @@ export default function AppSidebar({ collapsed, onToggle }: { collapsed: boolean
       )}>
         {!collapsed ? (
           <div className="flex flex-col items-center gap-2 select-none px-4">
-            <img src={logo} alt="JoulesToWatts AutoOps" className="h-12 w-auto object-contain" />
+            <WayamLogo alt="Wayam AI" className="h-10 w-auto object-contain" />
             <div className="flex flex-col items-center">
               <span className="font-bold text-foreground text-xs tracking-widest">Auto Ops</span>
               <span className="text-[8px] text-muted-foreground/60 font-medium uppercase tracking-[0.2em]">Intelligent IT Automation</span>
@@ -87,7 +87,7 @@ export default function AppSidebar({ collapsed, onToggle }: { collapsed: boolean
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center">
-            <img src={logo} alt="JW" className="h-8 w-auto object-contain" />
+            <img src={wayamMark} alt="Wayam AI" className="h-8 w-8 object-contain" />
           </div>
         )}
       </div>
@@ -173,7 +173,7 @@ export default function AppSidebar({ collapsed, onToggle }: { collapsed: boolean
             {!collapsed && (
               <div className="flex flex-col min-w-0">
                 <span className="text-xs font-semibold text-foreground truncate">{user?.first_name ? `${user.first_name} ${user.last_name || ''}`.trim() : "AutoOps User"}</span>
-                <span className="text-[10px] text-muted-foreground truncate">{user?.email || "user@joulestowatts.com"}</span>
+                <span className="text-[10px] text-muted-foreground truncate">{user?.email || "user@wayam.ai"}</span>
               </div>
             )}
           </NavLink>

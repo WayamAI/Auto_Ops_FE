@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { authService } from "@/api/auth";
 import { toast } from "sonner";
 import Lottie from "lottie-react";
-import logo from "@/assets/j2w wh logo.png";
+import WayamLogo from "@/components/WayamLogo";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -103,7 +103,7 @@ export default function Signup() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 bg-background relative overflow-y-auto">
         <div className="w-full max-w-lg space-y-8 py-12 animate-slide-up">
           <div className="flex flex-col items-center text-center space-y-4">
-            <img src={logo} alt="AutoOps Logo" className="h-10 w-auto object-contain mb-2" />
+            <WayamLogo alt="Wayam AI" className="h-10 w-auto object-contain mb-2" />
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tight text-foreground">Create Account</h2>
               <p className="text-muted-foreground">Fill in your details to request access to the platform</p>

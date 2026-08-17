@@ -9,8 +9,7 @@ import { toast } from "sonner";
 import { Loader2, User, Camera, ShieldCheck, Mail, Phone, Building2, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import AppLayout from "@/components/layout/AppLayout";
-
-const DEFAULT_AVATAR = "https://j2wdevstorage01.blob.core.windows.net/autoopscontainer/e8b531f5d8524c2da6644c71ab79583d_UserAvatar.svg";
+import DEFAULT_AVATAR from "@/assets/default-avatar.svg";
 
 export default function Profile() {
   const { user, updateUserContext } = useAuth();
