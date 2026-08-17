@@ -1,4 +1,3 @@
-import type { AccessModuleData, UserDetails } from "./types";
 import { DEMO_TOKEN_PREFIX } from "@/lib/demoMode";
 
 // Every module the sidebar can render, granted unconditionally in demo mode
@@ -77,41 +76,4 @@ export function demoLogin(email: string, password: string): { token: string; use
     throw new Error("Password is required");
   }
   return { token: issueDemoToken(), user: buildDemoUser(trimmed) };
-}
-
-export function demoAccessModuleResponse(user: DemoUser): AccessModuleData {
-  return {
-    user_id: user.id,
-    email: user.email,
-    role: {
-      _id: "demo-role",
-      name: user.role,
-      code: "ADMIN",
-      is_active: true,
-      created_at: new Date().toISOString(),
-      module_master: DEMO_MODULE_CODES.map((code) => ({
-        name: titleCase(code.replace(/_/g, " ")),
-        code,
-        is_active: true,
-        created_at: new Date().toISOString(),
-      })),
-    },
-  };
-}
-
-export function demoUserDetails(user: DemoUser): UserDetails {
-  const now = new Date().toISOString();
-  return {
-    user_id: user.id,
-    first_name: user.first_name,
-    last_name: user.last_name,
-    company_name: user.company_name,
-    phone_number: "",
-    email: user.email,
-    company_size: "",
-    role_code: "ADMIN",
-    is_active: true,
-    created_at: now,
-    updated_at: now,
-  };
 }
