@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { authService } from "@/api/auth";
 import { useQueryClient } from "@tanstack/react-query";
+import { isDemoMode, isDemoToken } from "@/lib/demoMode";
+import { DEMO_MODULE_CODES } from "@/api/demoAuth";
 
 interface User {
   id: string;
@@ -33,6 +35,36 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [authorizedModules, setAuthorizedModules] = useState<string[]>([]);
   const queryClient = useQueryClient();
 
+  // Demo sessions carry their profile in full already (built at login time), so
+  // this just grants every module without a network call.
+  const loadDemoDependencies = (currentUser: User) => {
+    setAuthorizedModules(DEMO_MODULE_CODES);
+    setUser({ ...currentUser, role: currentUser.role || "Administrator" });
+  };
+
+  const loadRealDependencies = async (currentUser: User) => {
+    const [moduleRes, userRes] = await Promise.all([
+      authService.getAccessModule(),
+      authService.getUserDetails(currentUser.id)
+    ]);
+    if (moduleRes.meta.status) {
+      setAuthorizedModules(moduleRes.data.role.module_master.map(m => m.code));
+    }
+    if (userRes.meta.status) {
+      const freshUser = { ...currentUser, ...userRes.data, id: userRes.data.user_id };
+      setUser(freshUser);
+      localStorage.setItem("user", JSON.stringify(freshUser));
+    }
+  };
+
+  const loadUserDependencies = async (currentUser: User, token: string) => {
+    if (isDemoMode() && isDemoToken(token)) {
+      loadDemoDependencies(currentUser);
+      return;
+    }
+    await loadRealDependencies(currentUser);
+  };
+
   useEffect(() => {
     const initAuth = async () => {
       const token = localStorage.getItem("access_token");
@@ -42,20 +74,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         try {
           const parsedUser = JSON.parse(storedUser);
           setUser(parsedUser);
-          
+
           try {
-            const [moduleRes, userRes] = await Promise.all([
-              authService.getAccessModule(),
-              authService.getUserDetails(parsedUser.id)
-            ]);
-            if (moduleRes.meta.status) {
-              setAuthorizedModules(moduleRes.data.role.module_master.map(m => m.code));
-            }
-            if (userRes.meta.status) {
-              const freshUser = { ...parsedUser, ...userRes.data, id: userRes.data.user_id };
-              setUser(freshUser);
-              localStorage.setItem("user", JSON.stringify(freshUser));
-            }
+            await loadUserDependencies(parsedUser, token);
           } catch (e) {
             console.error("Failed to load user dependencies", e);
           }
@@ -78,20 +99,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem("user", JSON.stringify(userData));
     setUser(userData);
     setIsAuthenticated(true);
-    
+
     try {
-      const [moduleRes, userRes] = await Promise.all([
-        authService.getAccessModule(),
-        authService.getUserDetails(userData.id)
-      ]);
-      if (moduleRes.meta.status) {
-        setAuthorizedModules(moduleRes.data.role.module_master.map(m => m.code));
-      }
-      if (userRes.meta.status) {
-        const freshUser = { ...userData, ...userRes.data, id: userRes.data.user_id };
-        setUser(freshUser);
-        localStorage.setItem("user", JSON.stringify(freshUser));
-      }
+      await loadUserDependencies(userData, token);
     } catch (e) {
       console.error("Failed to load user dependencies on login", e);
     }
