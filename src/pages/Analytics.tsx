@@ -68,7 +68,7 @@ export default function Analytics() {
 
       {activeTab === "ROI Dashboard" && (
         <div className="space-y-6">
-          <div className="grid grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
             <MetricCard 
               value="$142,000" 
               label="Total Savings (30 days)" 
@@ -220,7 +220,7 @@ export default function Analytics() {
 
       {activeTab === "Automation Coverage" && (
         <div className="space-y-6">
-          <div className="grid grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-8">
             <MetricCard 
               value="78%" 
               label="Automation Rate" 

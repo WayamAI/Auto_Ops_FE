@@ -248,7 +248,7 @@ export default function ToolRegistry() {
 
   return (
     <AppLayout title="Tool Registry" subtitle="Define how agents access and act on infrastructure">
-      <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-8">
         <MetricCard 
           value={String(profiles.length)} 
           label="Access Profiles" 
@@ -297,7 +297,7 @@ export default function ToolRegistry() {
       </div>
 
       {activeTab === "Access Profiles" && (
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
           {profiles.map((p, i) => (
             <div key={i} className={`bg-card rounded-md border p-5 ${p.status === "warning" ? "border-warning/30" : p.status === "error" ? "border-destructive/30" : "border-border/40"} hover:border-success/30 transition-all duration-300 shadow-sm group`}>
               <div className="flex items-center gap-4 mb-4">

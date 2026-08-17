@@ -138,7 +138,7 @@ export default function Agents() {
   return (
     <AppLayout title="Agent Repository" subtitle="Manage autonomous remediation agents">
       {/* Status Metrics */}
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         <MetricCard 
           value={String(agents.length)} 
           label="Total Agents" 
@@ -197,7 +197,7 @@ export default function Agents() {
       {!agentsLoading && agents.length === 0 && (
         <div className="flex items-center justify-center p-12 text-muted-foreground/60 text-sm mt-8 bg-card rounded-md border border-border/40">No agents found. The autonomous fleet is currently offline.</div>
       )}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
         {filtered.map((agent, i) => {
           const Icon = icons[i % icons.length];
           return (
@@ -218,7 +218,7 @@ export default function Agents() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 mb-4 py-3 border-y border-border/20 bg-secondary/5 rounded-sm px-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4 py-3 border-y border-border/20 bg-secondary/5 rounded-sm px-2">
                   <div className="text-center">
                     <p className="text-lg font-bold text-foreground/90">{agent.executions}</p>
                     <p className="text-[9px] text-muted-foreground/50 uppercase tracking-widest font-bold">Runs</p>

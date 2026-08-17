@@ -147,7 +147,7 @@ export default function HealthMonitor() {
   return (
     <AppLayout title="Health Monitor" subtitle="Real time visibility across all nodes">
       {/* KPI Tiles */}
-      <div className="grid grid-cols-5 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-6">
         {kpis.map((k, i) => (
           <div key={i} className="cursor-pointer" onClick={() => setStatusFilter(k.filter)}>
             <MetricCard value={k.value} label={k.label} subText={k.sub} accentColor={k.color} icon={k.icon} />

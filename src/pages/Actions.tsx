@@ -184,7 +184,7 @@ export default function Actions() {
       </div>
 
       {/* Metrics */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
         <MetricCard
           value={String(totalCount)}
           label="Total Actions"

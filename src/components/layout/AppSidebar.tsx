@@ -23,6 +23,7 @@ import { usePendingApprovals } from "@/api/hooks";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
 import DEFAULT_AVATAR from "@/assets/default-avatar.svg";
+import { useSidebarMobile } from "@/context/SidebarMobileContext";
 
 const navItems = [
   { path: "/", label: "Control Tower", icon: Radar, code: "CONTROL_TOWER" },
@@ -43,6 +44,7 @@ export default function AppSidebar({ collapsed, onToggle }: { collapsed: boolean
   const location = useLocation();
   const { data: pendingApprovals } = usePendingApprovals();
   const { user, logout, authorizedModules } = useAuth();
+  const { isOpen: mobileOpen, close: closeMobile } = useSidebarMobile();
 
   const authorizedNavItems = navItems.filter(item => authorizedModules.includes(item.code));
   const approvalCount = pendingApprovals?.length || 0;
@@ -66,12 +68,23 @@ export default function AppSidebar({ collapsed, onToggle }: { collapsed: boolean
   }, [approvalCount]);
 
   return (
-    <aside
-      className={cn(
-        "fixed left-0 top-0 h-screen bg-sidebar border-r border-sidebar-border flex flex-col z-50 transition-all duration-300 ease-in-out",
-        collapsed ? "w-20" : "w-64"
+    <>
+      {/* Mobile backdrop — tap outside the drawer to dismiss it */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-background/70 backdrop-blur-sm z-40 md:hidden"
+          onClick={closeMobile}
+          aria-hidden="true"
+        />
       )}
-    >
+      <aside
+        className={cn(
+          "fixed left-0 top-0 h-screen bg-sidebar border-r border-sidebar-border flex flex-col z-50 transition-all duration-300 ease-in-out",
+          "w-64", collapsed ? "md:w-20" : "md:w-64",
+          "-translate-x-full md:translate-x-0",
+          mobileOpen && "translate-x-0"
+        )}
+      >
       {/* Brand Section */}
       <div className={cn(
         "flex flex-col items-center justify-center pt-8 pb-6 border-b border-sidebar-border transition-all duration-300",
@@ -104,6 +117,7 @@ export default function AppSidebar({ collapsed, onToggle }: { collapsed: boolean
                 <NavLink
                   key={item.path}
                   to={item.path}
+                  onClick={closeMobile}
                   className={cn(
                     "relative group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm transition-all duration-200",
                     isActive
@@ -139,6 +153,7 @@ export default function AppSidebar({ collapsed, onToggle }: { collapsed: boolean
                 <NavLink
                   key={item.path}
                   to={item.path}
+                  onClick={closeMobile}
                   className={cn(
                     "group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm transition-all duration-200",
                     isActive
@@ -159,8 +174,9 @@ export default function AppSidebar({ collapsed, onToggle }: { collapsed: boolean
       {/* User & Footer Section */}
       <div className="p-4 border-t border-border/30">
         <div className={cn("flex items-center justify-between gap-3", collapsed ? "flex-col" : "")}>
-          <NavLink 
+          <NavLink
             to="/profile"
+            onClick={closeMobile}
             className="flex items-center gap-3 cursor-pointer hover:bg-secondary/40 p-2 -m-2 rounded-lg transition-colors border border-transparent hover:border-border/30"
           >
             <div className="w-8 h-8 rounded-full bg-secondary border border-border flex items-center justify-center shrink-0 overflow-hidden">
@@ -202,11 +218,12 @@ export default function AppSidebar({ collapsed, onToggle }: { collapsed: boolean
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
-          <button onClick={onToggle} className="hover:text-foreground transition-colors p-1 rounded hover:bg-secondary">
+          <button onClick={onToggle} className="hidden md:block hover:text-foreground transition-colors p-1 rounded hover:bg-secondary">
             {collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
           </button>
         </div>
       </div>
-    </aside>
+      </aside>
+    </>
   );
 }

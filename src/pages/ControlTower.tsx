@@ -200,7 +200,7 @@ export default function ControlTower() {
              <span className="text-[10px] uppercase font-bold tracking-widest">ServiceNow Sync: <span className="text-foreground">3m 50s ago</span></span>
         </div>
       </div>
-      <div className="grid grid-cols-5 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-6">
         <div className="cursor-pointer" onClick={() => navigate("/actions")}>
           <MetricCard 
             value={String(activeRemediations)} 
@@ -263,7 +263,7 @@ export default function ControlTower() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-8">
         {/* Live Feed */}
         <div className="col-span-2 bg-card rounded-md border border-border/40 overflow-hidden shadow-sm">
           <div className="flex items-center justify-between px-5 py-4 border-b border-border/40 bg-secondary/20">
@@ -363,7 +363,7 @@ export default function ControlTower() {
         <div className="px-5 py-4 border-b border-border/40 bg-secondary/20">
           <h2 className="text-xs font-bold uppercase tracking-widest text-foreground/80">Agent Performance Snapshot</h2>
         </div>
-        <div className="grid grid-cols-5 gap-4 p-5">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 p-5">
           {agentsLoading && (
             <div className="col-span-5 flex items-center justify-center p-6 text-muted-foreground text-xs gap-2"><Loader2 size={14} className="animate-spin" /> Loading agents...</div>
           )}

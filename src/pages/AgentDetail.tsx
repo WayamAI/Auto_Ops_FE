@@ -229,7 +229,7 @@ export default function AgentDetail() {
 
         return (
         <div className="space-y-6">
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
             <MetricCard 
               value={String(executions)} 
               label="Total Handled" 

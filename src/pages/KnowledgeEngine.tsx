@@ -340,7 +340,7 @@ export default function KnowledgeEngine() {
 
   return (
     <AppLayout title="Knowledge Engine" subtitle="Pattern learning and remediation intelligence">
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         <MetricCard 
           value="127" 
           label="Total Patterns Learned" 
@@ -434,7 +434,7 @@ export default function KnowledgeEngine() {
                   </button>
                   {isExpanded && (
                     <div className="px-4 pb-4 ml-5 space-y-3 border-t border-border pt-3">
-                      <div className="grid grid-cols-3 gap-3">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         <div className="bg-secondary/50 rounded-md p-2.5">
                           <p className="text-[10px] text-muted-foreground">Last Applied</p>
                           <p className="text-xs font-medium text-foreground">{p.applied > 0 ? "2 hours ago" : "Never"}</p>
@@ -477,7 +477,7 @@ export default function KnowledgeEngine() {
 
       {activeTab === "Mining Dashboard" && (
         <div className="space-y-6">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <MetricCard 
               value="2,847" 
               label="Historical Incidents Scanned" 

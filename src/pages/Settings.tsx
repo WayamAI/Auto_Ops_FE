@@ -406,7 +406,7 @@ export default function SettingsPage() {
 
           <div className="bg-card rounded-md border border-border/40 p-5 shadow-sm">
             <h3 className="text-xs font-bold uppercase tracking-widest text-foreground/80 mb-4">Rotation Policy</h3>
-            <div className="grid grid-cols-3 gap-4 text-xs">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs">
               <div className="space-y-1">
                 <span className="text-muted-foreground">Auto Rotation</span>
                 <p className="text-foreground font-medium">Enabled — every 90 days</p>
@@ -571,7 +571,7 @@ export default function SettingsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
             <div className="bg-card rounded-md border border-border/40 p-5 space-y-2 shadow-sm">
               <h4 className="text-[10px] font-bold text-muted-foreground/50 uppercase tracking-widest">Platform Version</h4>
               <p className="text-sm font-mono text-foreground font-bold">v2.14.3-stable</p>

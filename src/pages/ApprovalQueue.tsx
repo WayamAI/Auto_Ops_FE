@@ -97,7 +97,7 @@ export default function ApprovalQueue() {
   return (
     <AppLayout title="Approval Queue" subtitle="Human in the loop review for high impact remediations">
       {/* Metrics */}
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         <MetricCard
           value={String(approvals.length)}
           label="Pending Reviews"
