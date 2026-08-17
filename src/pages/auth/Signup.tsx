@@ -72,7 +72,7 @@ export default function Signup() {
               <Lottie 
                 animationData={animationData} 
                 loop={true} 
-                className="w-full h-full drop-shadow-[0_0_30px_rgba(45,212,191,0.2)]" 
+                className="w-full h-full drop-shadow-[0_0_30px_rgba(249,115,22,0.2)]" 
               />
             ) : (
               <div className="w-full h-full bg-secondary/20 animate-pulse rounded-full" />
